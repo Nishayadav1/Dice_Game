@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dice game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎲 DICE GAME 🎲 </h1>
+        <div class="box">
+        <div class="dice">
+            <p>Player1😇</p>
+            <img src="dice1.png" alt="" id="check1">
+        </div>
+        <div class="dice">
+            <p>Player2😇</p>
+            <img src="dice1.png" alt="" id="check2">
+        </div>
+        </div>
+         <div>
+            <button onclick="ludo()"> Ready </button>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- ------------------------------------------------------ -->
+   <script>
+    ludo = () =>{
+      
+          const play1 = Math.floor(Math.random()*6)+1;
+          const play1dice = `./dice${play1}.png`;
+         document.getElementById('check1').setAttribute('src',play1dice)
+
+        const play2 = Math.floor(Math.random()*6)+1;
+        const play2dice = `./dice${play2}.png`;
+        document.getElementById('check2').setAttribute('src', play2dice);
+         
+        if (play1 >play2){
+            document.querySelector('h1').innerHTML="🎉player1 won🎉";
+        }else if (play1 < play2){
+            document.querySelector('h1').innerHTML="🥳player2 won🥳";
+        }else{document.querySelector('h1').innerHTML="Draw😶‍🌫️";}
+
+        let audio=new Audio('b.mp3');
+        audio.play();
+
+    }   
+   </script>
+</body>
+</html>
